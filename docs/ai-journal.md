@@ -151,3 +151,45 @@ Frontend setup completed successfully with routing, styling, and a scalable arch
 
 
 ---
+
+---
+
+# Session 4
+
+## Goal
+
+Initialize the backend architecture for the MeetMind AI application.
+
+### AI Tool
+
+ChatGPT (GPT-5.5)
+
+### Prompt
+
+Design a scalable Express.js backend structure for a meeting management SaaS application using PostgreSQL, JWT authentication, and modular architecture.
+
+### AI Output
+
+Suggested:
+
+- Express server setup
+- Modular folder organization
+- Environment configuration
+- Middleware setup
+- Package recommendations
+- Development scripts
+
+### Manual Changes
+
+- Installed dependencies manually.
+- Configured project as an ES Module.
+- Verified server startup and API endpoint.
+- Prepared placeholders for database and AI configuration.
+
+### Outcome
+
+Backend foundation established successfully with a scalable architecture for future feature development.
+
+### Status
+
+✅ Completed

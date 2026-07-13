@@ -18,11 +18,10 @@
 
 ## Decisions
 
-- Selected React + Vite for fast development and excellent developer experience.
-- Chose Tailwind CSS for utility-first responsive UI development.
-- Used React Router for client-side routing.
-- Selected Axios for future API communication with the Express backend.
-- Created a scalable folder structure to support future growth and maintainability.
+- Selected Express.js for building REST APIs.
+- Configured environment variables using dotenv.
+- Added morgan for request logging during development.
+- Established a modular backend architecture to separate routes, controllers, services, models, middleware, and utilities.
 
 ---
 
@@ -31,38 +30,34 @@
 ### ✅ Completed
 
 - Repository initialized
-- Planning document created
-- AI journal created
-- Progress log created
-- React application initialized using Vite
+- Planning documentation completed
+- Frontend initialized using React + Vite
 - Tailwind CSS configured
-- React Router installed and configured
+- React Router configured
 - Axios installed
-- Frontend folder structure created
-- Placeholder pages created
-- Application routing configured
-- Initial frontend verified successfully
+- Backend initialized with Express
+- Project structure created
+- Environment configuration added
+- Express server configured
+- API health check endpoint created
 
 ### ⏳ In Progress
 
-- Backend setup
+- PostgreSQL integration
 
 ### ⏳ Upcoming
 
-- PostgreSQL configuration
-- JWT Authentication
-- Meeting CRUD APIs
-- Dashboard UI
-- Gemini AI Integration
+- Database schema
+- Authentication
+- Meeting CRUD
+- AI Integration
 
 ---
 
 ## Challenges
 
-- Verified the latest Tailwind CSS setup process for compatibility with Vite.
-- Ensured the project structure remains scalable before implementing features.
-
-No blocking issues encountered.
+- Verified Express configuration with ES Modules.
+- Prepared environment configuration for future database and AI integration.
 
 ---
 
