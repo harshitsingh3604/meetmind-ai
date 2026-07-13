@@ -1,10 +1,16 @@
-# MeetMind AI - Project Planning
+# meetmind-ai - Project Planning
 
 ## Project Information
 
-**Project Name:** MeetMind AI
+**Project Name:** meetmind-ai
 
 **Project Type:** Mini SaaS Application
+
+**Version:** 1.0.0
+
+**Status:** Planning Phase
+
+**Author:** Harshit Singh
 
 **Technology Stack**
 
@@ -38,13 +44,13 @@ Deployment (Planned)
 
 Meeting discussions often contain valuable information such as decisions, action items, and follow-up tasks. However, manually organizing meeting notes is time-consuming and prone to errors.
 
-MeetMind AI solves this problem by allowing users to store meeting notes and leverage AI to automatically generate concise summaries, extract key discussion points, identify action items, and create professional follow-up emails.
+meetmind-ai solves this problem by allowing users to store meeting notes and leverage AI to automatically generate concise summaries, extract key discussion points, identify action items, and create professional follow-up emails.
 
 ---
 
 # Application Overview
 
-MeetMind AI is a full-stack SaaS application that enables authenticated users to manage meeting records in one place. Users can create, edit, search, and organize meetings while utilizing AI-powered features to improve productivity.
+ meetmind-ai is a full-stack SaaS application that enables authenticated users to manage meeting records in one place. Users can create, edit, search, and organize meetings while utilizing AI-powered features to improve productivity.
 
 The application focuses on providing a clean user experience, secure authentication, structured data management, and practical AI assistance.
 
@@ -301,4 +307,5 @@ README.md
 - Responsive UI
 - Clean architecture
 - Proper documentation
-- Meaningful Git history
+- Meaningful Git history    
+
