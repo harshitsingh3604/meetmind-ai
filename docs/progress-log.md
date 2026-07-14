@@ -14,11 +14,11 @@
 - Design PostgreSQL database
 - Connect backend with PostgreSQL
 - Prepare project architecture for authentication
+- Implement secure JWT-based authentication
 
 ---
 
 ## Decisions
-
 
 - Selected React + Vite for fast frontend development.
 - Chose Tailwind CSS for responsive UI development.
@@ -26,6 +26,9 @@
 - Selected PostgreSQL because the application requires relational data and foreign key relationships.
 - Designed a normalized database schema for better scalability and data consistency.
 - Configured the backend using environment variables to separate sensitive configuration from source code.
+- Implemented JWT-based authentication for stateless and secure user sessions.
+- Used bcrypt to securely hash user passwords before storing them in the database.
+- Organized authentication into models, controllers, routes, middleware, utilities, and validators to maintain a clean and scalable architecture.
 
 ---
 
@@ -49,13 +52,24 @@
 - Database schema implemented
 - Database connection established successfully
 
+### Authentication Module
+
+- User model implemented
+- User registration API implemented
+- User login API implemented
+- JWT token generation utility created
+- Authentication input validation implemented
+- Authentication middleware implemented
+- Protected route support added
+- Authentication routes configured
+- Authentication routes registered in Express server
+
 ### ⏳ In Progress
 
-- JWT Authentication
+- Integrate frontend authentication flow
 
 ### ⏳ Upcoming
 
-- User Authentication
 - Meeting CRUD APIs
 - Dashboard Development
 - Gemini AI Integration
@@ -98,17 +112,19 @@ Database connection established successfully and backend started without errors.
 
 ## AI Conversations
 
-AI assistance was used for:
-
 - Project architecture planning
 - Frontend setup
 - Backend architecture
 - PostgreSQL schema design
 - Database connection debugging
+- Authentication architecture
+- JWT implementation
+- Password hashing strategy
 - API planning
 - Folder organization
+- Validation strategy
 
-All AI-generated suggestions were reviewed and manually verified before implementation.
+All AI-generated suggestions were reviewed, validated, and manually integrated before implementation.
 
 ---
 
@@ -128,4 +144,8 @@ Expanded into a modular SaaS application featuring secure authentication, AI-pow
 
 The frontend and backend foundations are complete.
 
-The PostgreSQL database has been successfully integrated, providing a solid base for implementing authentication and meeting management features.
+The PostgreSQL database and authentication module have been successfully integrated.
+
+The application now supports secure user registration, login, JWT authentication, and protected API architecture.
+
+The next development milestone focuses on implementing meeting management features and integrating AI-powered functionality.
