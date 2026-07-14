@@ -1,4 +1,4 @@
-#  meetmind-ai- AI Development Journal
+#  MeetMind AI- AI Development Journal
 
 This document records how AI was used throughout the project and where manual engineering decisions were required.
 
@@ -102,9 +102,6 @@ This section will be updated during development whenever AI-generated solutions 
 # Future Entries
 
 Additional AI interactions will be documented after each development milestone.
-
-
----
 
 ---
 
@@ -248,7 +245,7 @@ Verified:
 - Password
 - Connection configuration
 
-Discovered that the PostgreSQL password contained the special character , which caused issues in the connection string.
+The PostgreSQL password contained special characters that required proper handling in the database connection string.
 
 #### Resolution
 
@@ -631,6 +628,173 @@ Verified:
 ## Outcome
 
 Successfully completed the frontend authentication module by integrating React Context, Axios, JWT authentication, protected routing, and user session management. The frontend is now fully connected with the backend authentication system and provides secure access to protected application pages.
+
+### Status
+
+✅ Completed
+
+---
+
+# Session 8
+
+## Goal
+
+Design and implement a secure Meeting Management module by developing complete CRUD APIs with validation, authorization, and ownership verification.
+
+### AI Tool
+
+ChatGPT (GPT-5.5)
+
+### Prompt
+
+Design a modular Meeting CRUD system for an Express.js application using PostgreSQL and JWT authentication. The implementation should follow a layered architecture consisting of models, controllers, routes, validators, and middleware while ensuring authenticated users can only access and modify their own meeting records.
+
+### AI Output
+
+Suggested:
+
+- Meeting model
+- Meeting controller
+- Meeting routes
+- Request validation
+- Ownership verification
+- RESTful API structure
+- Error handling strategy
+
+### Manual Changes
+
+- Implemented SQL queries manually.
+- Connected CRUD operations with PostgreSQL.
+- Reviewed validation logic before implementation.
+- Registered meeting routes within the Express application.
+- Integrated JWT middleware for route protection.
+- Tested all endpoints using Postman.
+- Refined API responses for consistency.
+
+---
+
+## Meeting CRUD Development
+
+### Meeting Model
+
+Implemented reusable database functions:
+
+- createMeeting()
+- getAllMeetings()
+- getMeetingById()
+- updateMeeting()
+- deleteMeeting()
+
+The model layer is responsible only for database interaction, keeping business logic separate from SQL operations.
+
+---
+
+### Meeting Validation
+
+Implemented centralized validation for:
+
+- Meeting title
+- Meeting type
+- Meeting notes
+- Meeting date
+
+Validation logic was separated from controllers to improve maintainability and reduce duplicated code.
+
+---
+
+### Meeting Controllers
+
+Implemented:
+
+- createMeeting()
+- getMeetings()
+- getMeeting()
+- updateMeeting()
+- deleteMeeting()
+
+Controller responsibilities include:
+
+- Request validation
+- Ownership verification
+- Database interaction through models
+- Error handling
+- Consistent API responses
+
+---
+
+### Meeting Routes
+
+Configured modular meeting routes.
+
+Endpoints:
+
+POST /api/meetings
+
+GET /api/meetings
+
+GET /api/meetings/:id
+
+PUT /api/meetings/:id
+
+DELETE /api/meetings/:id
+
+All routes are protected using JWT authentication middleware.
+
+---
+
+### Ownership Verification
+
+Implemented authorization checks to ensure authenticated users can only access, update, or delete meetings that belong to them.
+
+The authenticated user's ID extracted from the JWT token is compared with the meeting owner's ID before allowing the requested operation.
+
+---
+
+## Challenges Encountered
+
+### Challenge
+
+Implementing secure ownership verification while keeping the controller logic clean and maintainable.
+
+### Resolution
+
+Separated ownership checks into the controller layer and validated the authenticated user's identity before performing database operations.
+
+This approach ensures unauthorized users cannot access or modify resources belonging to other users.
+
+---
+
+### Challenge
+
+Maintaining consistent API responses across all CRUD operations.
+
+### Resolution
+
+Standardized success and error responses for every endpoint and ensured appropriate HTTP status codes were returned for validation failures, unauthorized access, and missing resources.
+
+---
+
+## Debugging
+
+Verified:
+
+- Meeting creation
+- Fetch all meetings
+- Fetch single meeting
+- Update meeting
+- Delete meeting
+- Input validation
+- Unauthorized access
+- Ownership verification
+- Invalid meeting ID handling
+- PostgreSQL CRUD operations
+- Protected route behavior
+
+---
+
+## Outcome
+
+Successfully implemented a secure Meeting Management module with complete CRUD functionality, request validation, JWT-protected routes, ownership verification, and PostgreSQL integration following a modular Express architecture.
 
 ### Status
 

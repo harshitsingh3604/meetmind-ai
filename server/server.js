@@ -5,6 +5,7 @@ import morgan from "morgan";
 
 import "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
+import meetingRoutes from "./routes/meetingRoutes.js";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/meetings", meetingRoutes);
 
 // 404 Handler
 app.use((req, res) => {
@@ -30,7 +32,7 @@ app.use((req, res) => {
     message: "Route not found.",
   });
 });
-  
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
