@@ -37,6 +37,9 @@
 - Implemented the Meeting module using a layered architecture (Model → Controller → Route).
 - Added ownership verification to ensure users can only access and modify their own meetings.
 - Standardized API responses and centralized validation to improve maintainability.
+- Designed reusable UI components to simplify future feature additions.
+- Used a responsive layout to support desktop, tablet, and mobile devices.
+- Implemented placeholder dashboard statistics before backend integration.
 
 ---
 
@@ -113,6 +116,15 @@
 - Ownership verification implemented
 - Protected all meeting endpoints using JWT middleware
 - CRUD APIs tested successfully using Postman
+
+### Dashboard UI
+
+- Implemented reusable dashboard layout.
+- Created responsive sidebar navigation.
+- Added top navigation bar.
+- Developed reusable dashboard statistic cards.
+- Added recent meetings section.
+- Prepared dashboard for future API integration.
 
 ### ⏳ In Progress
 
