@@ -15,13 +15,18 @@
 - Connect backend with PostgreSQL
 - Prepare project architecture for authentication
 - Implement secure JWT-based authentication
+- Build frontend authentication flow
 
 ---
 
 ## Decisions
 
 - Selected React + Vite for fast frontend development.
-- Chose Tailwind CSS for responsive UI development.
+- Chose Tailwind CSS for responsive and utility-first UI development.
+- Used React Router for client-side routing.
+- Configured a centralized Axios instance for all backend API communication.
+- Implemented React Context API to manage global authentication state.
+- Protected private routes using a reusable `ProtectedRoute` component.
 - Used Express.js to build RESTful APIs.
 - Selected PostgreSQL because the application requires relational data and foreign key relationships.
 - Designed a normalized database schema for better scalability and data consistency.
@@ -30,29 +35,41 @@
 - Used bcrypt to securely hash user passwords before storing them in the database.
 - Organized authentication into models, controllers, routes, middleware, utilities, and validators to maintain a clean and scalable architecture.
 
+
 ---
 
 ## Progress
 
 ### ✅ Completed
 
+#### Project Setup
+
 - Repository initialized
 - Project planning completed
 - AI journal created
 - Progress log created
+
+#### Frontend Foundation
+
 - React frontend initialized
 - Tailwind CSS configured
 - React Router configured
 - Axios installed
 - Frontend folder structure created
+
+#### Backend Foundation
+
 - Express backend initialized
 - Backend folder structure created
 - Environment variables configured
+
+#### Database
+
 - PostgreSQL database created
-- Database schema implemented
+- Relational database schema implemented
 - Database connection established successfully
 
-### Authentication Module
+#### Backend Authentication
 
 - User model implemented
 - User registration API implemented
@@ -60,13 +77,29 @@
 - JWT token generation utility created
 - Authentication input validation implemented
 - Authentication middleware implemented
-- Protected route support added
+- Protected API support added
 - Authentication routes configured
 - Authentication routes registered in Express server
 
+#### Frontend Authentication
+
+- Centralized Axios API service configured
+- Authentication Context implemented
+- User session persistence using Local Storage
+- User registration page completed
+- User login page completed
+- Client-side form validation implemented
+- Authentication API integrated with frontend
+- JWT automatically stored after authentication
+- ProtectedRoute component implemented
+- Dashboard route protected
+- Profile route protected
+- Meeting routes protected
+- Automatic dashboard redirection after successful login
+
 ### ⏳ In Progress
 
-- Integrate frontend authentication flow
+- Meeting Management Module
 
 ### ⏳ Upcoming
 
@@ -87,6 +120,31 @@ During database integration, the backend failed to connect with PostgreSQL.
 ```
 password authentication failed for user "postgres"
 ```
+
+---
+
+### Authentication State Persistence After Page Refresh
+
+During frontend authentication development, the authenticated user was lost after refreshing the browser, causing protected routes to redirect back to the login page even after successful authentication.
+
+### Investigation
+
+- Verified JWT token storage in Local Storage.
+- Reviewed React Context state initialization.
+- Checked authentication flow after browser refresh.
+- Tested protected route behavior.
+
+### Root Cause
+
+The authentication state was maintained only in React state. Since React state resets after a page refresh, the application could not identify previously authenticated users.
+
+### Resolution
+
+Initialized the authentication context by loading the stored user information from Local Storage during application startup. This ensured that the authentication state persisted across page refreshes until the user explicitly logged out.
+
+### Outcome
+
+User sessions now persist across browser refreshes, and protected routes remain accessible without requiring users to log in again.
 
 ### Investigation
 
@@ -112,17 +170,13 @@ Database connection established successfully and backend started without errors.
 
 ## AI Conversations
 
-- Project architecture planning
-- Frontend setup
-- Backend architecture
-- PostgreSQL schema design
-- Database connection debugging
-- Authentication architecture
-- JWT implementation
-- Password hashing strategy
-- API planning
+- Project planning and architecture
+- Database schema design
+- Backend authentication (JWT, bcrypt, middleware)
+- Frontend authentication (React Context, Axios, Protected Routes)
+- API integration
 - Folder organization
-- Validation strategy
+- Debugging and error resolution    
 
 All AI-generated suggestions were reviewed, validated, and manually integrated before implementation.
 
@@ -142,10 +196,6 @@ Expanded into a modular SaaS application featuring secure authentication, AI-pow
 
 ## Notes
 
-The frontend and backend foundations are complete.
+The application now supports secure user registration, login, persistent authentication, protected frontend pages, and protected backend APIs.
 
-The PostgreSQL database and authentication module have been successfully integrated.
-
-The application now supports secure user registration, login, JWT authentication, and protected API architecture.
-
-The next development milestone focuses on implementing meeting management features and integrating AI-powered functionality.
+The next development milestone focuses on implementing meeting management features, dashboard functionality, and AI-powered meeting assistance.

@@ -8,18 +8,62 @@ import MeetingDetails from "./pages/MeetingDetails";
 import EditMeeting from "./pages/EditMeeting";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Public Routes */}
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/meetings/new" element={<CreateMeeting />} />
-        <Route path="/meetings/:id" element={<MeetingDetails />} />
-        <Route path="/meetings/:id/edit" element={<EditMeeting />} />
-        <Route path="/profile" element={<Profile />} />
+
+        {/* Protected Routes */}
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/meetings/new"
+          element={
+            <ProtectedRoute>
+              <CreateMeeting />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/meetings/:id"
+          element={
+            <ProtectedRoute>
+              <MeetingDetails />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/meetings/:id/edit"
+          element={
+            <ProtectedRoute>
+              <EditMeeting />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+        {/* Catch-all Route for 404 */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
