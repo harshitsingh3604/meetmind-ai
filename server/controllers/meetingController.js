@@ -8,9 +8,7 @@ import {
 
 import validateMeetingInput from "../validators/meetingValidator.js";
 
-/**
- * Create Meeting
- */
+/* Create Meeting */
 export const createMeetingHandler = async (req, res) => {
   try {
     const { title, meetingType, participants, meetingNotes, meetingDate } =
@@ -54,9 +52,7 @@ export const createMeetingHandler = async (req, res) => {
   }
 };
 
-/**
- * Get All Meetings
- */
+/* Get All Meetings */
 export const getAllMeetingsHandler = async (req, res) => {
   try {
     const meetings = await getAllMeetings(req.user.id);
@@ -75,9 +71,7 @@ export const getAllMeetingsHandler = async (req, res) => {
   }
 };
 
-/**
- * Get Single Meeting
- */
+/* Get Single Meeting */
 export const getMeetingByIdHandler = async (req, res) => {
   try {
     const meeting = await getMeetingById(req.params.id, req.user.id);
@@ -103,9 +97,7 @@ export const getMeetingByIdHandler = async (req, res) => {
   }
 };
 
-/**
- * Update Meeting
- */
+/* Update Meeting */
 export const updateMeetingHandler = async (req, res) => {
   try {
     const { title, meetingType, participants, meetingNotes, meetingDate } =
@@ -174,6 +166,7 @@ export const deleteMeetingHandler = async (req, res) => {
     return res.status(200).json({
       success: true,
       message: "Meeting deleted successfully.",
+      data: null,
     });
   } catch (error) {
     console.error("Delete Meeting Error:", error);

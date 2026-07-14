@@ -1,16 +1,11 @@
 import bcrypt from "bcrypt";
 
-import {
-  createUser,
-  getUserByEmail,
-} from "../models/userModel.js";
+import { createUser, getUserByEmail } from "../models/userModel.js";
 
 import validateRegisterInput from "../validators/authValidator.js";
 import generateToken from "../utils/generateToken.js";
 
-/**
- * Register User
- */
+/* Register User  */
 export const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -55,22 +50,43 @@ export const registerUser = async (req, res) => {
     return res.status(201).json({
       success: true,
       message: "User registered successfully.",
-      token,
-      user,
+      data: {
+        token,
+        user,
+      },
     });
   } catch (error) {
     console.error("Register Error:", error);
 
+    if (error.code === "23505") {
+      return res.status(400).json({
+        success: false,
+        message: "Email already exists.",
+      });
+    }
+
+    if (error.code === "23503") {
+      return res.status(400).json({
+        success: false,
+        message: "Related record not found.",
+      });
+    }
+
+    if (error.code === "ECONNREFUSED" || error.code === "57P01") {
+      return res.status(500).json({
+        success: false,
+        message: "Database service is currently unavailable.",
+      });
+    }
+
     return res.status(500).json({
       success: false,
-      message: "Internal Server Error.",
+      message: "Internal server error.",
     });
   }
 };
 
-/**
- * Login User
- */
+/* Login User */
 export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -94,10 +110,7 @@ export const loginUser = async (req, res) => {
     }
 
     // Compare Password
-    const isPasswordMatch = await bcrypt.compare(
-      password,
-      user.password
-    );
+    const isPasswordMatch = await bcrypt.compare(password, user.password);
 
     if (!isPasswordMatch) {
       return res.status(401).json({
@@ -112,19 +125,28 @@ export const loginUser = async (req, res) => {
     return res.status(200).json({
       success: true,
       message: "Login successful.",
-      token,
-      user: {
-        id: user.id,
-        name: user.name,
-        email: user.email,
+      data: {
+        token,
+        user: {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+        },
       },
     });
   } catch (error) {
-    console.error("Login Error:", error);
+    console.error(error);
+
+    if (error.code === "ECONNREFUSED" || error.code === "57P01") {
+      return res.status(500).json({
+        success: false,
+        message: "Database service is currently unavailable.",
+      });
+    }
 
     return res.status(500).json({
       success: false,
-      message: "Internal Server Error.",
+      message: "Internal server error.",
     });
   }
 };

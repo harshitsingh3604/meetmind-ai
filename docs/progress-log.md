@@ -18,6 +18,7 @@
 - Develop secure Meeting CRUD APIs
 - Build responsive Meeting Creation interface
 - Develop meeting history interface with CRUD actions
+- Add the error handler
 
 ---
 
@@ -49,6 +50,10 @@
 - Reused the centralized Axios service to retrieve authenticated user meetings from the backend.
 - Added loading, empty, and error states to improve the overall user experience.
 - Implemented delete confirmation before removing meetings to prevent accidental data loss.
+- Centralized backend error handling to improve maintainability.
+- Standardized API responses for consistent frontend integration.
+- Added frontend loading and empty states to improve user experience.
+- Improved application resilience by handling authentication, validation, and database failures gracefully.
 
 ---
 
@@ -157,9 +162,18 @@
 - Added delete confirmation before removing meetings.
 - Automatically refreshed the meeting list after successful deletion.
 
+### Error Handling
+
+- Implemented centralized backend error handling middleware.
+- Added 404 and 500 error responses.
+- Improved JWT authentication error handling.
+- Standardized validation and database error responses.
+- Added loading, empty, and error states across frontend pages.
+- Implemented user feedback for successful and failed operations.
+
 ### ⏳ In Progress
 
-- Meeting Details Module
+- Testing All the routes and Dashboard
 
 ### ⏳ Upcoming
 
@@ -313,6 +327,7 @@ AI assistance was used for:
 - React state management
 - Folder organization
 - Debugging and troubleshooting
+- Adding the error handler
 
 All AI-generated suggestions were carefully reviewed, tested, and manually adapted before implementation.
 

@@ -923,3 +923,45 @@ Successfully implemented the Meeting History page with backend integration, resp
 ### Status
 
 ✅ Completed
+
+
+# Session 12
+
+## Goal
+
+Improve application reliability by implementing centralized backend error handling and enhancing frontend loading and error states.
+
+### AI Tool
+
+ChatGPT (GPT-5.5)
+
+### Prompt
+
+Design a consistent error-handling strategy for a full-stack React and Express application, including backend middleware, frontend loading states, validation handling, and user-friendly error messages.
+
+### AI Output
+
+Suggested:
+
+- Centralized Express error middleware
+- 404 handler
+- JWT error handling
+- Validation error responses
+- Loading states
+- Empty states
+- Error UI patterns
+
+### Manual Changes
+
+- Integrated middleware into the existing Express application.
+- Customized API responses to match the project's response format.
+- Added loading and empty states to React components.
+- Verified frontend behavior for common error scenarios.
+
+### Outcome
+
+Successfully improved application stability by introducing consistent backend error handling and user-friendly frontend feedback mechanisms.
+
+### Status
+
+✅ Completed
