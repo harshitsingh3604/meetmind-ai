@@ -840,3 +840,44 @@ Successfully developed a reusable dashboard layout ready for integration with ba
 ### Status
 
 ✅ Completed
+
+
+# Session 10
+
+## Goal
+
+Develop the meeting creation interface and integrate it with the backend Meeting API.
+
+### AI Tool
+
+ChatGPT (GPT-5.5)
+
+### Prompt
+
+Design a responsive Create Meeting page using React that validates user input, communicates with an Express backend, and follows a reusable component-based architecture.
+
+### AI Output
+
+Suggested:
+
+- Form structure
+- Validation flow
+- API integration
+- Loading state
+- Error handling
+- Navigation after successful submission
+
+### Manual Changes
+
+- Connected the form with the existing Meeting API.
+- Customized validation rules.
+- Reused the dashboard layout components.
+- Verified successful meeting creation using backend APIs.
+
+### Outcome
+
+Completed the meeting creation interface with validation, backend integration, and consistent application styling.
+
+### Status
+
+✅ Completed
