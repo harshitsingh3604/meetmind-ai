@@ -74,6 +74,7 @@ const CreateMeeting = () => {
       setLoading(true);
 
       const response = await api.post("/meetings", formData);
+      navigate("/meetings");
 
       setSuccess(response.data.message || "Meeting created successfully.");
 
@@ -86,10 +87,6 @@ const CreateMeeting = () => {
       });
 
       setErrors({});
-
-      setTimeout(() => {
-        navigate("/dashboard");
-      }, 1500);
 
     } catch (error) {
       console.error(error);

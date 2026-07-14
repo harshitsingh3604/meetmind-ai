@@ -5,7 +5,7 @@ import Sidebar from "../components/layout/Sidebar";
 import Navbar from "../components/layout/Navbar";
 import { Link } from "react-router-dom";
 
-const MeetingDetails = () => {
+const Meetings = () => {
 
   const [meetings, setMeetings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -35,30 +35,30 @@ const MeetingDetails = () => {
   }, []);
 
   const handleDelete = async (meetingId) => {
-  const confirmed = window.confirm(
-    "Are you sure you want to delete this meeting?"
-  );
-
-  if (!confirmed) return;
-
-  try {
-    await api.delete(`/meetings/${meetingId}`);
-
-    setMeetings((prevMeetings) =>
-      prevMeetings.filter(
-        (meeting) => meeting.id !== meetingId
-      )
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this meeting?"
     );
 
-  } catch (error) {
-    console.error(error);
+    if (!confirmed) return;
 
-    setError(
-      error.response?.data?.message ||
-      "Unable to delete meeting."
-    );
-  }
-};
+    try {
+      await api.delete(`/meetings/${meetingId}`);
+
+      setMeetings((prevMeetings) =>
+        prevMeetings.filter(
+          (meeting) => meeting.id !== meetingId
+        )
+      );
+
+    } catch (error) {
+      console.error(error);
+
+      setError(
+        error.response?.data?.message ||
+        "Unable to delete meeting."
+      );
+    }
+  };
 
   return (
     <div className="flex min-h-screen bg-gray-100">
@@ -78,14 +78,25 @@ const MeetingDetails = () => {
           <div className="mx-auto w-full max-w-6xl">
 
             {/* Page Header */}
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold text-gray-800">
-                Meetings
-              </h1>
+            <div className="mb-8 flex items-center justify-between">
 
-              <p className="mt-2 text-gray-500">
-                View, manage, and organize all your meetings in one place.
-              </p>
+              <div>
+                <h1 className="text-3xl font-bold text-gray-800">
+                  Meetings
+                </h1>
+
+                <p className="mt-2 text-gray-500">
+                  View, manage, and organize all your meetings in one place.
+                </p>
+              </div>
+
+              <Link
+                to="/meetings/new"
+                className="rounded-lg bg-blue-600 px-5 py-3 font-medium text-white transition hover:bg-blue-700"
+              >
+                + Create Meeting
+              </Link>
+
             </div>
 
             {/* Meeting List Card */}
@@ -138,7 +149,7 @@ const MeetingDetails = () => {
                         </h2>
 
                         <p className="mt-1 text-gray-500">
-                          {meeting.meetingType}
+                          {meeting.meeting_type}
                         </p>
                       </div>
 
@@ -160,7 +171,7 @@ const MeetingDetails = () => {
                           </p>
 
                           <p className="mt-1 text-gray-800">
-                            {new Date(meeting.meetingDate).toLocaleDateString("en-GB", {
+                            {new Date(meeting.meeting_date).toLocaleDateString("en-GB", {
                               day: "numeric",
                               month: "long",
                               year: "numeric",
@@ -215,4 +226,4 @@ const MeetingDetails = () => {
   );
 };
 
-export default MeetingDetails;
+export default Meetings;
