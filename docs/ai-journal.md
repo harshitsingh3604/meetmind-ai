@@ -193,3 +193,79 @@ Backend foundation established successfully with a scalable architecture for fut
 ### Status
 
 ✅ Completed
+
+---
+
+# Session 5
+
+## Goal
+
+Design the relational database schema and connect the Express backend to PostgreSQL.
+
+### AI Tool
+
+ChatGPT (GPT-5.5)
+
+### Prompt
+
+Design a normalized PostgreSQL database schema for an AI-powered meeting management application and assist in configuring the database connection using Node.js and Express.
+
+### AI Output
+
+Suggested:
+
+- Relational database schema
+- Users table
+- Meetings table
+- AI summaries table
+- Action items table
+- Foreign key relationships
+- PostgreSQL connection configuration
+
+### Manual Changes
+
+- Executed SQL schema manually in PostgreSQL.
+- Created the required database.
+- Verified table relationships.
+- Configured environment variables.
+- Tested database connectivity.
+
+### Debugging Session
+
+#### Problem
+
+Database connection failed with the following error:
+
+```
+password authentication failed for user "postgres"
+```
+
+#### Investigation
+
+Verified:
+
+- PostgreSQL service
+- Database name
+- Username
+- Password
+- Connection configuration
+
+Discovered that the PostgreSQL password contained the special character , which caused issues in the connection string.
+
+#### Resolution
+
+Updated the database connection configuration and corrected the connection string by handling the special character appropriately.
+
+#### Result
+
+Database connection established successfully.
+
+---
+
+### Outcome
+
+Successfully completed the database design and backend integration with PostgreSQL.
+
+### Status
+
+✅ Completed
