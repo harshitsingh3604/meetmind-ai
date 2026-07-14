@@ -6,8 +6,6 @@
 
 ## Objectives
 
-## Objectives
-
 - Initialize repository
 - Create project documentation
 - Setup React + Vite frontend

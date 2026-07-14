@@ -152,8 +152,6 @@ Frontend setup completed successfully with routing, styling, and a scalable arch
 
 ---
 
----
-
 # Session 4
 
 ## Goal
