@@ -30,11 +30,11 @@ export const generateMeetingSummary = async (req, res) => {
       summary,
     });
   } catch (error) {
-    console.error("Summary Controller Error:", error);
+    console.error(error);
 
     return res.status(500).json({
       success: false,
-      message: "Failed to generate AI response.",
+      message: error.message,
     });
   }
 };
@@ -64,11 +64,11 @@ export const generateMeetingActionItems = async (req, res) => {
       actionItems,
     });
   } catch (error) {
-    console.error("Action Items Controller Error:", error);
+    console.error(error);
 
     return res.status(500).json({
       success: false,
-      message: "Failed to generate AI response.",
+      message: error.message,
     });
   }
 };
@@ -98,11 +98,11 @@ export const generateMeetingFollowupEmail = async (req, res) => {
       followupEmail,
     });
   } catch (error) {
-    console.error("Follow-up Email Controller Error:", error);
+    console.error(error);
 
     return res.status(500).json({
       success: false,
-      message: "Failed to generate AI response.",
+      message: error.message,
     });
   }
 };
@@ -132,11 +132,11 @@ export const generateMeetingKeyPoints = async (req, res) => {
       keyPoints,
     });
   } catch (error) {
-    console.error("Key Points Controller Error:", error);
+    console.error(error);
 
     return res.status(500).json({
       success: false,
-      message: "Failed to generate AI response.",
+      message: error.message,
     });
   }
 };
