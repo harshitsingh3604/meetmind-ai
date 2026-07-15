@@ -171,7 +171,7 @@ const Meetings = () => {
                           </p>
 
                           <p className="mt-1 text-gray-800">
-                            {new Date(meeting.meeting_date).toLocaleDateString("en-GB", {
+                            {new Date(meeting.meetingDate).toLocaleDateString("en-GB", {
                               day: "numeric",
                               month: "long",
                               year: "numeric",

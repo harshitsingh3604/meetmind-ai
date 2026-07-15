@@ -4,6 +4,7 @@ import {
   generateMeetingSummary,
   generateMeetingActionItems,
   generateMeetingFollowupEmail,
+  generateMeetingKeyPoints,
 } from "../controllers/aiController.js";
 
 const router = express.Router();
@@ -12,13 +13,13 @@ const router = express.Router();
  * AI Routes
  */
 
-// Generate Meeting Summary
+
 router.post("/summary", generateMeetingSummary);
 
-// Generate Action Items
+router.post("/key-points", generateMeetingKeyPoints);
+
 router.post("/action-items", generateMeetingActionItems);
 
-// Generate Follow-up Email
 router.post("/followup", generateMeetingFollowupEmail);
 
 export default router;

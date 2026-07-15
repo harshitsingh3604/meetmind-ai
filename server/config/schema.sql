@@ -19,7 +19,7 @@ CREATE TABLE meetings (
     meeting_type VARCHAR(100) NOT NULL,
     participants TEXT,
     meeting_notes TEXT NOT NULL,
-    meeting_date DATE NOT NULL,
+    meetingDate DATE NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT fk_user

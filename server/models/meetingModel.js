@@ -16,7 +16,7 @@ export const createMeeting = async ({
       meeting_type,
       participants,
       meeting_notes,
-      meeting_date
+      meetingDate,
     )
     VALUES ($1, $2, $3, $4, $5, $6)
     RETURNING *;
@@ -42,7 +42,7 @@ export const getAllMeetings = async (userId) => {
     SELECT *
     FROM meetings
     WHERE user_id = $1
-    ORDER BY meeting_date DESC, created_at DESC;
+    ORDER BY meeting_date  DESC, created_at DESC;
   `;
 
   const { rows } = await pool.query(query, [userId]);

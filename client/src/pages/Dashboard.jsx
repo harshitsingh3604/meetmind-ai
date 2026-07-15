@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import api from "../services/api";
+
 import {
   CalendarDays,
   FileText,
@@ -9,54 +12,56 @@ import Sidebar from "../components/layout/Sidebar";
 import Navbar from "../components/layout/Navbar";
 import DashboardCard from "../components/ui/DashboardCard";
 
-const dashboardStats = {
-  totalMeetings: 15,
-  aiSummaries: 10,
-  pendingTasks: 6,
-  recentMeetings: 5,
-};
 
-
-
-const recentMeetings = [
-  {
-    id: 1,
-    title: "Sprint Planning",
-    date: "12 Jul 2026",
-    type: "Team",
-    status: "Completed",
-  },
-  {
-    id: 2,
-    title: "Client Discussion",
-    date: "11 Jul 2026",
-    type: "Client",
-    status: "Pending",
-  },
-  {
-    id: 3,
-    title: "Project Review",
-    date: "10 Jul 2026",
-    type: "Review",
-    status: "Completed",
-  },
-  {
-    id: 4,
-    title: "AI Brainstorming",
-    date: "09 Jul 2026",
-    type: "Workshop",
-    status: "Pending",
-  },
-  {
-    id: 5,
-    title: "Weekly Sync",
-    date: "08 Jul 2026",
-    type: "Internal",
-    status: "Completed",
-  },
-];
 
 const Dashboard = () => {
+
+  const [dashboardStats, setDashboardStats] = useState(null);
+
+  const [loading, setLoading] = useState(true);
+
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchDashboardStats = async () => {
+      try {
+        setLoading(true);
+
+        const response = await api.get("/dashboard/stats");
+
+        setDashboardStats(response.data.data);
+
+      } catch (error) {
+        console.error(error);
+
+        setError(
+          error.response?.data?.message ||
+          "Unable to load dashboard."
+        );
+
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDashboardStats();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        Loading dashboard...
+      </div>
+    );
+  }
+  if (error) {
+    return (
+      <div className="p-6 text-red-600">
+        {error}
+      </div>
+    );
+  }
+
   return (
     <div className="flex min-h-screen bg-gray-100">
 
@@ -94,8 +99,8 @@ const Dashboard = () => {
             />
 
             <DashboardCard
-              title="Recent Meetings"
-              value={dashboardStats.recentMeetings}
+              title="Meetings This Month"
+              value={dashboardStats.meetingsThisMonth}
               icon={<Clock size={28} />}
             />
 
@@ -136,45 +141,60 @@ const Dashboard = () => {
 
                 </thead>
 
+
+
                 <tbody>
 
-                  {recentMeetings.map((meeting) => (
+                  {dashboardStats.recentMeetings?.length === 0 ? (
 
-                    <tr
-                      key={meeting.id}
-                      className="border-b transition hover:bg-gray-50"
-                    >
-
-                      <td className="px-4 py-4 font-medium">
-                        {meeting.title}
+                    <tr>
+                      <td
+                        colSpan="4"
+                        className="py-8 text-center text-gray-500"
+                      >
+                        No recent meetings found.
                       </td>
-
-                      <td className="px-4 py-4">
-                        {meeting.date}
-                      </td>
-
-                      <td className="px-4 py-4">
-                        {meeting.type}
-                      </td>
-
-                      <td className="px-4 py-4">
-
-                        <span
-                          className={`rounded-full px-3 py-1 text-xs font-semibold ${meeting.status === "Completed"
-                            ? "bg-green-100 text-green-700"
-                            : "bg-yellow-100 text-yellow-700"
-                            }`}
-                        >
-                          {meeting.status}
-                        </span>
-
-                      </td>
-
                     </tr>
 
-                  ))}
+                  ) : (
+
+                    (dashboardStats.recentMeetings || []).map((meeting) => (
+
+                      <tr
+                        key={meeting.id}
+                        className="border-b transition hover:bg-gray-50"
+                      >
+                        <td className="px-4 py-3">
+                          {meeting.title}
+                        </td>
+
+                        <td className="px-4 py-3">
+                          {new Date(meeting.meetingDate).toLocaleDateString(
+                            "en-GB",
+                            {
+                              day: "numeric",
+                              month: "short",
+                              year: "numeric",
+                            }
+                          )}
+                        </td>
+
+                        <td className="px-4 py-3">
+                          {meeting.meetingType || "—"}
+                        </td>
+
+                        <td className="px-4 py-3">
+                          —
+                        </td>
+                      </tr>
+
+                    ))
+
+                  )}
 
                 </tbody>
+
+
 
               </table>
 

@@ -106,3 +106,38 @@ export const generateMeetingFollowupEmail = async (req, res) => {
     });
   }
 };
+
+
+/**
+ * Generate Key Points
+ * POST /api/ai/key-points
+ */
+export const generateMeetingKeyPoints = async (req, res) => {
+  try {
+    const { meetingNotes } = req.body;
+
+    // Validate Input
+    if (!meetingNotes || !meetingNotes.trim()) {
+      return res.status(400).json({
+        success: false,
+        message: "Meeting notes are required.",
+      });
+    }
+
+    // Generate Key Points
+    const keyPoints = await generateKeyPoints(meetingNotes);
+
+    // Success Response
+    return res.status(200).json({
+      success: true,
+      keyPoints,
+    });
+  } catch (error) {
+    console.error("Key Points Controller Error:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Failed to generate AI response.",
+    });
+  }
+};
