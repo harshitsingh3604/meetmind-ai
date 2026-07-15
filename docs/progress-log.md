@@ -85,6 +85,7 @@
 - Implemented a dedicated AI controller to separate HTTP request handling from AI business logic.
 - Exposed AI functionality through RESTful endpoints for seamless frontend integration.
 - Protected all AI endpoints using JWT authentication to ensure only authenticated users can access AI features.
+- Organized AI endpoints under a dedicated `/api/ai` route namespace to keep backend routing modular and scalable.
 
 ---
 
@@ -226,6 +227,13 @@
 - Connected AI routes with Express
 - Secured AI endpoints using JWT middleware
 - Verified AI endpoints using Thunder Client
+
+### AI Routing
+
+- Created modular AI routing layer.
+- Connected AI endpoints with Express.
+- Registered AI routes within the application.
+- Verified endpoint communication between routes, controllers, and Gemini service.
 
 ### ⏳ In Progress
 
@@ -495,6 +503,31 @@ Implemented dedicated AI controllers that delegate all AI communication to the G
 ### Outcome
 
 The backend now exposes reusable AI endpoints without coupling controllers to Gemini-specific logic.
+
+### Gemini Model Compatibility
+
+During AI integration, the Meeting Summary API failed to generate responses even though the Gemini API key and backend configuration were correct.
+
+### Investigation
+
+- Verified Gemini API key configuration.
+- Tested AI endpoints using Thunder Client.
+- Reviewed backend service implementation.
+- Inspected Gemini API error responses.
+- Checked SDK and model compatibility.
+
+### Root Cause
+
+The configured Gemini model was no longer available for the current API project, resulting in a 404 model not found error during AI requests.
+
+### Resolution
+
+Updated the AI service to use a supported Gemini model, verified SDK compatibility, and re-tested all AI endpoints with the new configuration.
+
+### Outcome
+
+AI-powered Meeting Summary generation now works successfully, and the backend generates responses correctly through the Gemini API.
+
 ---
 
 AI assistance was used for:

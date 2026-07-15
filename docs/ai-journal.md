@@ -1215,3 +1215,49 @@ Successfully implemented a modular AI controller layer that connects backend req
 ### Status
 
 ✅ Completed
+
+
+
+# Session 17
+
+## Goal
+
+Connect AI controller endpoints with the Express application through a dedicated routing module.
+Resolve the AI integration issue preventing Gemini from generating meeting summaries.
+
+### AI Tool
+
+ChatGPT (GPT-5.5)
+
+### Prompt
+
+- Design a modular routing layer for AI-powered endpoints in an Express.js application following REST API best practices.
+- Debug the Gemini AI integration where the Meeting Summary API returned a model not found error despite a valid API key and correct backend configuration.
+
+### AI Output
+
+Suggested:
+
+- Dedicated AI router
+- Route organization
+- Route registration
+- RESTful endpoint structure
+- Verify Gemini SDK version and review the configured Gemini model.
+- Check model compatibility with the current API project.
+
+### Manual Changes
+
+- Connected AI routes with the Express server.
+- Verified endpoint registration.
+- Tested all AI endpoints using Postman.
+- Verified the Gemini SDK installation and reviewed Gemini service configuration.
+- Updated the AI model to a supported version.
+
+### Outcome
+
+Successfully integrated the Gemini AI service into the backend routing architecture and successfully resolved the Gemini model compatibility issue. AI-powered Meeting Summary generation now works correctly, and the backend returns valid responses from the Gemini API.
+
+
+### Status
+
+✅ Completed

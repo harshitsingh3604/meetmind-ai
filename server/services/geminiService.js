@@ -44,7 +44,7 @@ export const generateSummary = async (meetingNotes) => {
     const prompt = buildSummaryPrompt(meetingNotes);
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-flash-latest",
       contents: prompt,
     });
     if (!response || !response.text) {
@@ -74,7 +74,7 @@ export const generateKeyPoints = async (meetingNotes) => {
     const prompt = buildKeyPointsPrompt(meetingNotes);
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-flash-latest",
       contents: prompt,
     });
     if (!response || !response.text) {
@@ -104,7 +104,7 @@ export const generateActionItems = async (meetingNotes) => {
     const prompt = buildActionItemsPrompt(meetingNotes);
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-flash-latest",
       contents: prompt,
     });
     if (!response || !response.text) {
@@ -133,7 +133,7 @@ export const generateFollowupEmail = async (meetingNotes) => {
     const prompt = buildFollowUpEmailPrompt(meetingNotes);
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-flash-latest",
       contents: prompt,
     });
     if (!response || !response.text) {
