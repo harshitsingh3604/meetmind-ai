@@ -1,78 +1,138 @@
 # MeetMind AI
 
-MeetMind AI is a full-stack SaaS application that helps users manage meeting records in one place. Users can securely create an account, log in, and organize their meetings through a clean dashboard.
+MeetMind AI is a full-stack AI-powered SaaS application that helps users organize meeting notes, generate AI-powered insights, and manage meeting workflows efficiently.
+
+Built as part of the **CEDCOSS Vibe Coder Assessment**, the project demonstrates AI-assisted software development, modular architecture, clean engineering practices, and complete documentation of the development process.
 
 ---
 
-## Features
+# Features
 
-### Authentication
+## Authentication
+
 - User Registration
 - User Login
-- JWT-based Authentication
+- JWT Authentication
 - Password Hashing using bcrypt
-- Protected Routes
-
-### Meeting Management
-- Create Meeting
-- View All Meetings
-- Edit Meeting
-- Delete Meeting
-- Meeting Details
-
-### Dashboard
-- Dashboard Layout
-- Sidebar Navigation
-- Navbar
-- Dashboard Cards
-- User Profile Page
-
-### Backend
-- RESTful API Architecture
-- PostgreSQL Database
-- Input Validation
-- Centralized Error Handling
-- Modular MVC Structure
-
-### Documentation
-- Project Planning
-- AI Development Journal
-- Progress Log
+- Protected Backend APIs
+- Protected Frontend Routes
+- Persistent User Sessions
 
 ---
 
-## Tech Stack
+## Meeting Management
 
-### Frontend
+- Create Meeting
+- View All Meetings
+- View Meeting Details
+- Edit Meeting
+- Delete Meeting
+- Ownership-based Authorization
+- Meeting History
+
+---
+
+## AI-Powered Features
+
+Powered by **Google Gemini AI**
+
+- Generate Meeting Summary
+- Generate Action Items
+- Generate Professional Follow-up Email
+- AI-powered Meeting Details page
+- Secure AI API endpoints
+
+---
+
+## Dashboard
+
+- Live Dashboard Statistics
+- Total Meetings
+- AI Summaries
+- Pending Tasks
+- Meetings This Month
+- Latest Five Meetings
+- Sidebar Navigation
+- Responsive Dashboard Layout
+
+---
+
+## Profile Management
+
+- View Profile
+- Update Name
+- Update Email
+- Change Password
+- JWT-Protected Profile APIs
+
+---
+
+## Backend
+
+- RESTful API Architecture
+- Express.js
+- PostgreSQL
+- JWT Authentication
+- bcrypt Password Hashing
+- Modular MVC Architecture
+- Centralized Error Handling
+- Input Validation
+
+---
+
+## Documentation
+
+The project includes complete engineering documentation:
+
+- Project Planning
+- AI Development Journal
+- Development Progress Log
+- README
+
+---
+
+# Tech Stack
+
+## Frontend
+
 - React
 - Vite
 - Tailwind CSS
 - React Router DOM
 - Axios
-
-### Backend
-- Node.js
-- Express.js
-- PostgreSQL
-- JWT Authentication
-- bcrypt
-- Morgan
-- CORS
-- dotenv
+- React Context API
 
 ---
 
-## Project Structure
+## Backend
+
+- Node.js
+- Express.js
+- PostgreSQL
+- Google Gemini AI
+- JWT
+- bcrypt
+- Morgan
+- dotenv
+- CORS
+
+---
+
+# Project Structure
 
 ```text
 meetmind-ai/
 
 ├── client/
 │   ├── src/
+│   │   ├── assets/
 │   │   ├── components/
 │   │   ├── context/
+│   │   ├── hooks/
+│   │   ├── layouts/
 │   │   ├── pages/
 │   │   ├── services/
+│   │   ├── utils/
 │   │   ├── App.jsx
 │   │   └── main.jsx
 │   └── package.json
@@ -83,6 +143,7 @@ meetmind-ai/
 │   ├── middleware/
 │   ├── models/
 │   ├── routes/
+│   ├── services/
 │   ├── utils/
 │   ├── validators/
 │   ├── server.js
@@ -98,32 +159,65 @@ meetmind-ai/
 
 ---
 
-## Database
+# Database Schema
 
-The application uses PostgreSQL as its primary database.
+## Users
 
-Current schema includes:
-
-- Users
-- Meetings
-
-Future iterations will include:
-
-- AI Summaries
-- Action Items
+- id
+- name
+- email
+- password
+- created_at
 
 ---
 
-## API Endpoints
+## Meetings
 
-### Authentication
+- id
+- user_id
+- title
+- meeting_type
+- participants
+- meeting_notes
+- meeting_date
+- created_at
+
+---
+
+## AI Summaries
+
+- id
+- meeting_id
+- summary
+- key_points
+- followup_email
+- created_at
+
+---
+
+## Action Items
+
+- id
+- meeting_id
+- task
+- assigned_to
+- deadline
+- completed
+
+---
+
+# API Endpoints
+
+## Authentication
 
 | Method | Endpoint |
 |---------|----------|
 | POST | /api/auth/register |
 | POST | /api/auth/login |
 
-### Meetings
+---
+
+## Meetings
 
 | Method | Endpoint |
 |---------|----------|
@@ -135,12 +229,40 @@ Future iterations will include:
 
 ---
 
-## Installation
+## AI
 
-### Clone Repository
+| Method | Endpoint |
+|---------|----------|
+| POST | /api/ai/summary |
+| POST | /api/ai/action-items |
+| POST | /api/ai/followup |
+
+---
+
+## Dashboard
+
+| Method | Endpoint |
+|---------|----------|
+| GET | /api/dashboard/stats |
+
+---
+
+## Profile
+
+| Method | Endpoint |
+|---------|----------|
+| GET | /api/profile |
+| PUT | /api/profile |
+| PUT | /api/profile/password |
+
+---
+
+# Installation
+
+## Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/meetmind-ai.git
+git clone https://github.com/<your-username>/meetmind-ai.git
 
 cd meetmind-ai
 ```
@@ -155,7 +277,7 @@ cd server
 npm install
 ```
 
-Create a `.env` file inside the **server** directory.
+Create a `.env` file:
 
 ```env
 PORT=5000
@@ -163,9 +285,11 @@ PORT=5000
 DATABASE_URL=your_postgresql_connection_string
 
 JWT_SECRET=your_secret_key
+
+GEMINI_API_KEY=your_gemini_api_key
 ```
 
-Run the backend server
+Run backend
 
 ```bash
 npm run dev
@@ -183,13 +307,13 @@ npm install
 npm run dev
 ```
 
-The frontend will run on
+Frontend
 
 ```
 http://localhost:5173
 ```
 
-The backend will run on
+Backend
 
 ```
 http://localhost:5000
@@ -197,69 +321,109 @@ http://localhost:5000
 
 ---
 
-## Current Development Status
+# Application Workflow
 
-### Completed
+```text
+User Login
+      │
+      ▼
+Dashboard
+      │
+      ▼
+Create Meeting
+      │
+      ▼
+Meeting History
+      │
+      ▼
+Meeting Details
+      │
+      ▼
+Generate AI Insights
+      │
+      ▼
+Gemini AI
+      │
+      ▼
+Summary • Action Items • Follow-up Email
+```
+
+---
+
+# Current Project Status
+
+## Completed
 
 - Project Planning
-- Repository Setup
-- React Application Setup
-- Express Server Setup
+- React + Vite Setup
+- Express Backend
 - PostgreSQL Integration
 - JWT Authentication
 - User Registration & Login
-- Meeting CRUD APIs
 - Protected Routes
-- Dashboard Layout
-- Documentation
-
-### In Progress
-
-- Dashboard Data Integration
-- Meeting Details UI
-- Profile Improvements
-
-### Planned
-
-- AI Meeting Summary Generation
-- AI Action Item Extraction
-- AI Follow-up Email Generation
-- Search & Filter
-- Responsive UI Enhancements
-- Deployment
-
----
-
-## Documentation
-
-Additional project documentation is available inside the **docs** directory.
-
-- planning.md
-- ai-journal.md
-- progress-log.md
-
----
-
-## Future Enhancements
-
+- Meeting CRUD APIs
+- Meeting History
+- Meeting Details
+- Meeting Editing
+- Dashboard Integration
+- Live Dashboard Statistics
+- Profile Management
 - Google Gemini AI Integration
-- AI Meeting Summaries
-- AI Action Items
-- AI Follow-up Emails
-- Search & Filtering
-- User Statistics
-- Responsive Dashboard
-- Deployment
-- Reflection Document
+- AI Summary Generation
+- AI Action Item Generation
+- AI Follow-up Email Generation
+- AI-powered Meeting Details
+- Development Documentation
 
 ---
 
-## Development Approach
+## Remaining Improvements
 
-This project is being developed using an AI-assisted development workflow. Every major milestone is documented through planning documents, progress logs, and AI interaction records to demonstrate engineering decisions, iterative development, and responsible AI usage.
+- Frontend validation enhancements
+- save the Gemini generated data into dashboard 
+- Avatar placeholder
+- UI polish
 
 ---
 
-## License
+# Documentation
 
-This project was developed as part of the **CEDCOSS Vibe Coder Assessment** for educational and evaluation purposes.
+Complete project documentation is available in the `docs` folder.
+
+- `planning.md`
+- `progress-log.md`
+- `ai-journal.md`
+
+These documents describe:
+
+- Project planning
+- Architecture decisions
+- Development milestones
+- AI-assisted workflow
+- Engineering decisions
+- Challenges encountered
+- Manual implementation details
+
+---
+
+# AI-Assisted Development
+
+This project was intentionally developed using an AI-assisted workflow.
+
+AI was used for:
+
+- System architecture
+- Database design
+- API planning
+- Prompt engineering
+- Documentation
+- Debugging
+- Development guidance
+
+All generated suggestions were manually reviewed, adapted, implemented, tested, and validated before being included in the project.
+
+---
+
+# License
+
+This project was developed as part of the **CEDCOSS Technologies Vibe Coder Assessment** for educational and evaluation purposes.

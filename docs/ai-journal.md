@@ -1,4 +1,4 @@
-#  MeetMind AI- AI Development Journal
+#  MeetMind AI - AI Development Journal
 
 This document records how AI was used throughout the project and where manual engineering decisions were required.
 
@@ -19,6 +19,7 @@ All generated content was reviewed, modified, and validated before inclusion in 
 ---
 
 # AI Usage Log
+---
 
 ## Session 1
 
@@ -225,6 +226,7 @@ Suggested:
 - Configured environment variables.
 - Tested database connectivity.
 
+---
 ### Debugging Session
 
 #### Problem
@@ -800,7 +802,7 @@ Successfully implemented a secure Meeting Management module with complete CRUD f
 
 ✅ Completed
 
-
+---
 # Session 9
 
 ## Goal
@@ -841,7 +843,7 @@ Successfully developed a reusable dashboard layout ready for integration with ba
 
 ✅ Completed
 
-
+---
 # Session 10
 
 ## Goal
@@ -882,7 +884,7 @@ Completed the meeting creation interface with validation, backend integration, a
 
 ✅ Completed
 
-
+---
 # Session 11
 
 ## Goal
@@ -924,7 +926,7 @@ Successfully implemented the Meeting History page with backend integration, resp
 
 ✅ Completed
 
-
+---
 # Session 12
 
 ## Goal
@@ -1094,7 +1096,7 @@ Successfully completed the Meeting Management integration. Authenticated meeting
 
 ✅ Completed
 
-
+---
 # Session 16
 
 ## Goal
@@ -1217,7 +1219,7 @@ Successfully implemented a modular AI controller layer that connects backend req
 ✅ Completed
 
 
-
+---
 # Session 17
 
 ## Goal
@@ -1262,7 +1264,7 @@ Successfully integrated the Gemini AI service into the backend routing architect
 
 ✅ Completed
 
-
+---
 # Session 18
 
 ## Goal
@@ -1303,7 +1305,7 @@ Successfully integrated AI-powered meeting intelligence into the frontend, allow
 
 ✅ Completed
 
-
+---
 # Session 19
 
 ## Goal
@@ -1343,48 +1345,9 @@ Successfully connected the dashboard with authenticated backend data, enabling d
 
 ✅ Completed
 
-
-# Session 20
-
-## Goal
-
-Resolve the Gemini API integration issue preventing successful AI summary generation.
-
-### AI Tool
-
-ChatGPT (GPT-5.5)
-
-### Prompt
-
-Debug the Gemini API integration where AI requests failed because the configured model was no longer supported despite valid API credentials and backend configuration.
-
-### AI Output
-
-Suggested:
-
-- Verify Gemini SDK version.
-- Review configured Gemini model.
-- Check API compatibility.
-- Replace deprecated model with a supported version.
-- Test AI endpoints after updating the configuration.
-
-### Manual Changes
-
-- Reviewed Gemini service configuration.
-- Updated the Gemini model to a supported version.
-- Verified API communication.
-- Tested AI summary generation using Thunder Client.
-
-### Outcome
-
-Successfully resolved the Gemini model compatibility issue. AI-powered meeting summary generation now functions correctly using the updated Gemini model.
-
-### Status
-
-✅ Completed
 ---
 
-# Session 21
+# Session 20
 
 ## Goal
 
@@ -1427,7 +1390,7 @@ Successfully replaced placeholder dashboard values with live backend data, provi
 
 ---
 
-# Session 22
+# Session 21
 
 ## Goal
 
@@ -1525,3 +1488,24 @@ Successfully implemented a complete profile management module with authenticated
 ### Status
 
 ✅ Completed
+
+---
+
+# Final Reflection
+
+## AI Usage Summary
+
+Throughout development, AI was used to assist with:
+
+- System architecture
+- Backend design
+- Frontend structure
+- API planning
+- Database modeling
+- Documentation
+- Debugging
+- UI refinement
+
+Every AI-generated suggestion was manually reviewed, adapted, implemented, tested, and validated before being incorporated into the project.
+
+The final application reflects a combination of AI-assisted development and manual engineering decisions throughout the complete software development lifecycle.
