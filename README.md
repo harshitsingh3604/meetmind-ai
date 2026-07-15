@@ -262,7 +262,7 @@ meetmind-ai/
 ## Clone Repository
 
 ```bash
-git clone https://github.com/<your-username>/meetmind-ai.git
+git clone https://github.com/harshitsingh3604/meetmind-ai.git
 
 cd meetmind-ai
 ```
