@@ -1093,3 +1093,43 @@ Successfully completed the Meeting Management integration. Authenticated meeting
 ### Status
 
 ✅ Completed
+
+
+# Session 16
+
+## Goal
+
+Integrate Google Gemini to provide AI-powered meeting assistance.
+
+### AI Tool
+
+ChatGPT (GPT-5.5)
+
+### Prompt
+
+Design a reusable Gemini AI service for an Express.js application capable of generating meeting summaries, extracting key points, identifying action items, and drafting follow-up emails.
+
+### AI Output
+
+Suggested:
+
+- Modular AI service architecture
+- Prompt engineering strategy
+- Response parsing
+- Error handling
+- Reusable generation functions
+
+### Manual Changes
+
+- Configured Gemini API credentials.
+- Adapted prompts for the project requirements.
+- Tested AI responses with sample meeting notes.
+- Integrated reusable service functions into the backend.
+
+### Outcome
+
+Successfully implemented a reusable AI service supporting multiple meeting intelligence features.
+
+### Status
+
+✅ Completed
