@@ -319,6 +319,9 @@ Backend
 http://localhost:5000
 ```
 
+## Live Demo
+https://meetmind-ai-gules.vercel.app/
+
 ---
 
 # Application Workflow
