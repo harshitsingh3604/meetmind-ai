@@ -1359,3 +1359,45 @@ Recommended switching to a supported Gemini model.
 
 Updated the model configuration.
 Tested and verified AI summary generation successfully.
+
+---
+
+# Session 21
+
+## Goal
+
+Replace placeholder dashboard statistics with live backend data and display recent meetings using authenticated APIs.
+
+### AI Tool
+
+ChatGPT (GPT-5.5)
+
+### Prompt
+
+Design an efficient dashboard architecture for a React and Express application that retrieves meeting statistics and recent meetings from PostgreSQL using a single backend endpoint.
+
+### AI Output
+
+Suggested:
+
+- Dashboard statistics endpoint
+- Backend aggregation strategy
+- Dashboard API integration
+- Recent meetings section
+- Loading and error states
+
+### Manual Changes
+
+- Implemented a dedicated dashboard statistics endpoint.
+- Connected dashboard cards with authenticated backend APIs.
+- Retrieved live meeting statistics from PostgreSQL.
+- Displayed the latest five meetings dynamically.
+- Verified dashboard statistics after CRUD operations.
+
+### Outcome
+
+Successfully replaced placeholder dashboard values with live backend data, providing accurate meeting statistics and recent meeting history.
+
+### Status
+
+✅ Completed
