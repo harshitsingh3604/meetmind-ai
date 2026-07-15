@@ -1346,20 +1346,42 @@ Successfully connected the dashboard with authenticated backend data, enabling d
 
 # Session 20
 
+## Goal
+
+Resolve the Gemini API integration issue preventing successful AI summary generation.
+
+### AI Tool
+
+ChatGPT (GPT-5.5)
+
 ### Prompt
 
-Help resolve the Gemini API error caused by an unsupported model.
+Debug the Gemini API integration where AI requests failed because the configured model was no longer supported despite valid API credentials and backend configuration.
 
 ### AI Output
 
-Identified the deprecated model.
-Recommended switching to a supported Gemini model.
+Suggested:
+
+- Verify Gemini SDK version.
+- Review configured Gemini model.
+- Check API compatibility.
+- Replace deprecated model with a supported version.
+- Test AI endpoints after updating the configuration.
 
 ### Manual Changes
 
-Updated the model configuration.
-Tested and verified AI summary generation successfully.
+- Reviewed Gemini service configuration.
+- Updated the Gemini model to a supported version.
+- Verified API communication.
+- Tested AI summary generation using Thunder Client.
 
+### Outcome
+
+Successfully resolved the Gemini model compatibility issue. AI-powered meeting summary generation now functions correctly using the updated Gemini model.
+
+### Status
+
+✅ Completed
 ---
 
 # Session 21
@@ -1397,6 +1419,108 @@ Suggested:
 ### Outcome
 
 Successfully replaced placeholder dashboard values with live backend data, providing accurate meeting statistics and recent meeting history.
+
+### Status
+
+✅ Completed
+
+
+---
+
+# Session 22
+
+## Goal
+
+Implement authenticated profile management, allowing users to view and update their profile information and securely change their account password.
+
+### AI Tool
+
+ChatGPT (GPT-5.5)
+
+### Prompt
+
+Design a Profile Management module for a React and Express application using JWT authentication that supports authenticated profile retrieval, profile updates, and secure password changes while following a modular architecture.
+
+### AI Output
+
+Suggested:
+
+- Protected profile APIs
+- Profile retrieval workflow
+- Profile update functionality
+- Password change workflow
+- Form organization
+- Backend integration strategy
+
+### Manual Changes
+
+- Connected the Profile page with protected backend APIs.
+- Implemented authenticated profile retrieval.
+- Added profile update functionality for name and email.
+- Implemented secure password change workflow.
+- Reused the centralized Axios service for API communication.
+- Verified authenticated profile operations.
+
+---
+
+## Profile Management Development
+
+### Profile Information
+
+Implemented a dedicated profile section allowing authenticated users to view and update their account information.
+
+Features:
+
+- Retrieve authenticated user details
+- Display user information
+- Update name
+- Update email
+- Protected API communication
+
+---
+
+### Password Management
+
+Implemented a separate password management section.
+
+Features:
+
+- Current password input
+- New password input
+- Confirm password input
+- Secure password update API
+- JWT-protected backend endpoint
+
+---
+
+## Challenges Encountered
+
+### Challenge
+
+Designing the profile module so that account information updates and password changes remained independent while sharing the same authentication system.
+
+### Resolution
+
+Separated profile updates and password changes into individual workflows while reusing the existing JWT authentication middleware and centralized Axios service for secure communication.
+
+---
+
+## Debugging
+
+Verified:
+
+- Authenticated profile retrieval
+- Profile update API
+- Password update API
+- Protected route behavior
+- Database updates
+- Authenticated API communication
+
+---
+
+## Outcome
+
+Successfully implemented a complete profile management module with authenticated profile retrieval, profile updates, secure password changes, and protected backend integration.
 
 ### Status
 

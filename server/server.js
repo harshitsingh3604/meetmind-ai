@@ -9,6 +9,7 @@ import meetingRoutes from "./routes/meetingRoutes.js";
 import errorHandler from "./middleware/errorHandler.js";
 import aiRoutes from "./routes/aiRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
+import profileRoutes from "./routes/profileRoutes.js";
 
 dotenv.config();
 
@@ -29,6 +30,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/meetings", meetingRoutes);
 app.use("/api/ai", aiRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/profile", profileRoutes);
 
 
 // 404 Handler

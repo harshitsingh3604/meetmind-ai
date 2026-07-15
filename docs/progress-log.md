@@ -50,6 +50,11 @@
 - Reuse meeting form for create and edit operations
 - Validate meeting updates
 - Integrate Update Meeting API
+- Implement authenticated profile management
+- Retrieve authenticated user information
+- Update user profile details
+- Implement secure password change workflow
+- Integrate profile management with protected backend APIs
 
 
 ---
@@ -109,6 +114,10 @@
 - Reused the existing meeting form for both Create and Edit workflows to reduce code duplication.
 - Loaded existing meeting information before rendering the edit form to provide a seamless editing experience.
 - Used the existing Update Meeting API instead of introducing duplicate backend logic.
+- Separated profile updates and password changes into independent workflows for improved maintainability.
+- Reused JWT authentication middleware to protect all profile-related endpoints.
+- Structured the profile page into separate sections for account information and password management.
+- Reused the centralized Axios service for profile API communication.
 
 ---
 
@@ -294,15 +303,24 @@
 - Implemented frontend error handling for failed update operations.
 - Verified complete meeting editing workflow from frontend to PostgreSQL.
 
+### Profile Management
+
+- Implemented authenticated profile retrieval.
+- Displayed user profile information.
+- Connected profile page with protected backend APIs.
+- Added profile update functionality for name and email.
+- Implemented secure password change workflow.
+- Added loading states during profile operations.
+- Verified profile updates and password changes using authenticated requests.
+
 ### ⏳ In Progress
 
-- Profile Page
+- Final UI refinement
 
 ### ⏳ Upcoming
 
-- Final dashboard improvements
+
 - Deployment
-- Video walkthrough
 - Final documentation review
 
 
@@ -646,6 +664,28 @@ Users can now edit existing meetings with pre-filled data, validate changes, and
 
 ---
 
+### Profile Management Integration
+
+While implementing the Profile module, it was necessary to separate general profile updates from password management while ensuring both operations remained protected by JWT authentication.
+
+### Investigation
+
+- Reviewed authenticated user retrieval.
+- Verified protected profile endpoints.
+- Tested profile update requests.
+- Tested password update workflow.
+- Compared frontend form structure with backend API requirements.
+
+### Resolution
+
+Implemented independent profile and password update workflows, connected both forms with protected backend APIs, and verified authenticated profile operations using the existing authentication middleware.
+
+### Outcome
+
+Users can now securely view and update their profile information and change their passwords without affecting the authentication workflow.
+
+---
+
 AI assistance was used for:
 
 - Project planning and architecture
@@ -692,6 +732,10 @@ AI assistance was used for:
 - Meeting editing workflow
 - Form reuse strategy
 - Update API integration
+- Profile management architecture
+- Protected profile APIs
+- Password update workflow
+- Profile frontend integration
 
 All AI-generated suggestions were carefully reviewed, tested, and manually adapted before implementation.
 
@@ -723,6 +767,28 @@ Expanded into a modular AI-powered SaaS application featuring:
 - Modular Gemini service architecture
 - Protected AI REST APIs
 - Responsive AI-powered user experience
+### Current Design
+
+Expanded into a modular AI-powered SaaS application featuring:
+
+- Secure JWT authentication
+- Responsive dashboard with live backend statistics
+- Complete Meeting Management workflow
+- Meeting Creation interface
+- Meeting History interface
+- Meeting Editing interface
+- Profile Management interface
+- Secure password management
+- AI-powered Meeting Details page
+- Ownership-based authorization
+- Protected frontend and backend routes
+- AI-powered meeting summaries
+- AI-generated key point extraction
+- AI-generated action items
+- AI-generated follow-up emails
+- Modular Gemini service architecture
+- Protected AI REST APIs
+- Responsive AI-powered user experience
 
 ---
 
@@ -733,15 +799,14 @@ The application now provides a complete AI-powered meeting management workflow.
 Users can:
 
 - Register and authenticate securely.
-- Create new meetings.
-- View meeting history.
-- Edit existing meetings.
-- Delete meetings.
-- Open detailed meeting information.
-- Generate AI-powered summaries.
+- Create, view, edit, and delete meetings.
+- View detailed meeting information.
+- Manage their profile information.
+- Change their account password securely.
+- Generate AI-powered meeting summaries.
 - Generate AI action items.
 - Generate professional follow-up emails.
 - View live dashboard statistics retrieved from PostgreSQL.
-- Access protected AI endpoints through a secure JWT-based backend.
+- Access protected application and AI endpoints through JWT authentication.
 
-The remaining work focuses on final UI refinement, deployment, documentation review, video walkthrough, and preparing the project for final submission.   
+The remaining work focuses on frontend validation improvements, user feedback enhancements, final UI refinement, deployment, documentation review, video walkthrough, and preparing the project for final submission.
