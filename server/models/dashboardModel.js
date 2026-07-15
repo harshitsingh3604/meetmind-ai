@@ -1,7 +1,6 @@
 import pool from "../config/db.js";
 
 export const getDashboardStats = async (userId) => {
-
   const totalMeetingsQuery = `
     SELECT COUNT(*) AS total
     FROM meetings
@@ -12,26 +11,22 @@ export const getDashboardStats = async (userId) => {
     SELECT COUNT(*) AS total
     FROM meetings
     WHERE user_id = $1
-      AND DATE_TRUNC('month', meetingDate) =
+      AND DATE_TRUNC('month', meeting_date) =
           DATE_TRUNC('month', CURRENT_DATE)
   `;
 
   const recentMeetingsQuery = `
     SELECT id,
            title,
-           meeting_type,
-           meetingDate
+           meeting_type AS "meetingType",
+            meeting_date AS "meetingDate"
     FROM meetings
     WHERE user_id = $1
     ORDER BY meeting_date DESC
     LIMIT 5
   `;
 
-  const [
-    totalMeetings,
-    meetingsThisMonth,
-    recentMeetings,
-  ] = await Promise.all([
+  const [totalMeetings, meetingsThisMonth, recentMeetings] = await Promise.all([
     pool.query(totalMeetingsQuery, [userId]),
     pool.query(meetingsThisMonthQuery, [userId]),
     pool.query(recentMeetingsQuery, [userId]),

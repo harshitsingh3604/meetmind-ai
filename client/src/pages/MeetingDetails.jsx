@@ -34,6 +34,8 @@ const MeetingDetails = () => {
                 setLoading(true);
 
                 const response = await api.get(`/meetings/${id}`);
+                console.log(response.data.data);
+console.log(response.data.data.meetingDate);
 
                 setMeeting(response.data.data || []);
             } catch (error) {

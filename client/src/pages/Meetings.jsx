@@ -143,17 +143,28 @@ const Meetings = () => {
                       className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition hover:shadow-md"
                     >
 
-                      <div className="mb-4">
-                        <h2 className="text-xl font-semibold text-gray-800">
-                          {meeting.title}
-                        </h2>
+                      <div className="grid gap-4 md:grid-cols-2">
 
-                        <p className="mt-1 text-gray-500">
-                          {meeting.meeting_type}
-                        </p>
+                        <div className="div">
+                          <p className="text-sm font-medium text-gray-500">
+                            Meeting Title
+                          </p>
+                          <p className="text-xl font-semibold text-gray-800">
+                            {meeting.title}
+                          </p>
+                        </div>
+
+                        <div className="div">
+                          <p className="text-sm font-medium text-gray-500">
+                            Meeting Type
+                          </p>
+                          <p className="text-xl font-semibold text-gray-800">
+                            {meeting.meeting_type}
+                          </p>
+                        </div>
                       </div>
 
-                      <div className="grid gap-4 md:grid-cols-2">
+                      <div className="mt-4 grid gap-4 md:grid-cols-2">
 
                         <div>
                           <p className="text-sm font-medium text-gray-500">
@@ -171,7 +182,7 @@ const Meetings = () => {
                           </p>
 
                           <p className="mt-1 text-gray-800">
-                            {new Date(meeting.meetingDate).toLocaleDateString("en-GB", {
+                            {new Date(meeting.meeting_date).toLocaleDateString("en-GB", {
                               day: "numeric",
                               month: "long",
                               year: "numeric",

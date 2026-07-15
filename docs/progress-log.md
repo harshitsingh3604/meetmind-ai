@@ -42,6 +42,9 @@
 - Integrate AI features into the frontend
 - Display AI-generated meeting insights
 - Improve frontend AI loading and error handling
+- Fixed meeting API response field mapping between backend and frontend
+- Resolved meeting creation and display issues
+- Corrected database column mapping for meeting data
 
 
 
@@ -267,14 +270,15 @@
 - Displayed latest five meetings dynamically.
 - Added dashboard loading and error states.
 - Verified dashboard statistics using authenticated user data.
+- Fixed AI summary generation by updating the Gemini model
+- Verified meeting CRUD APIs using Thunder Client
 
 ### ⏳ In Progress
 
-Testing the UI and connections
+- Dashboard AI analytics
 
 ### ⏳ Upcoming
 
-- Dashboard AI analytics
 - Dashboard statistics integration
 - Final UI polishing
 - Deployment
@@ -585,6 +589,20 @@ Implemented separate loading and error states for each AI section and connected 
 Users can now generate AI-powered meeting insights independently while maintaining a responsive user interface.
 
 
+### Challenge
+Meeting data was not displaying correctly because backend and frontend used different field names.
+
+**Solution**
+Updated SQL queries with proper aliases and synchronized API responses with frontend components.
+
+---
+
+### Challenge
+AI summary generation failed due to an unsupported Gemini model.
+
+**Solution**
+Updated the Gemini model configuration and verified successful AI summary generation.
+
 ---
 
 AI assistance was used for:
@@ -627,6 +645,7 @@ AI assistance was used for:
 - Independent loading states
 - Retry workflow
 - AI UI design
+- Fixed meeting API response field mapping between backend and frontend
 
 All AI-generated suggestions were carefully reviewed, tested, and manually adapted before implementation.
 

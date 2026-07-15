@@ -16,7 +16,7 @@ export const createMeeting = async ({
       meeting_type,
       participants,
       meeting_notes,
-      meetingDate,
+      meeting_date
     )
     VALUES ($1, $2, $3, $4, $5, $6)
     RETURNING *;
@@ -53,16 +53,21 @@ export const getAllMeetings = async (userId) => {
 /*  Get a meeting by ID */
 export const getMeetingById = async (meetingId, userId) => {
   const query = `
-    SELECT *
-    FROM meetings
-    WHERE id = $1
-      AND user_id = $2;
+   SELECT
+    id,
+    user_id AS "userId",
+    title,
+    meeting_type AS "meetingType",
+    participants,
+    meeting_notes AS "meetingNotes",
+    meeting_date AS "meetingDate",
+    created_at AS "createdAt"
+FROM meetings
+WHERE id = $1
+AND user_id = $2;
   `;
 
-  const { rows } = await pool.query(query, [
-    meetingId,
-    userId,
-  ]);
+  const { rows } = await pool.query(query, [meetingId, userId]);
 
   return rows[0];
 };
@@ -116,10 +121,7 @@ export const deleteMeeting = async (meetingId, userId) => {
     RETURNING *;
   `;
 
-  const { rows } = await pool.query(query, [
-    meetingId,
-    userId,
-  ]);
+  const { rows } = await pool.query(query, [meetingId, userId]);
 
   return rows[0];
 };
