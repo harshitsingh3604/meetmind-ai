@@ -321,15 +321,15 @@
 - Improved sidebar spacing and colors.
 - Refined dashboard layout consistency.
 - Updated profile page styling.
-- Improved overall responsive layout.
+- Updated application branding with a custom favicon.
 
 ### ⏳ In Progress
 
-- Update README.md 
+- Deployment
 
 ### ⏳ Upcoming
 
-- Deployment
+
 - Final documentation review
 
 
