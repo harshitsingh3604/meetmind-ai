@@ -107,7 +107,6 @@ export const generateMeetingFollowupEmail = async (req, res) => {
   }
 };
 
-
 /**
  * Generate Key Points
  * POST /api/ai/key-points
