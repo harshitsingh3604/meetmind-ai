@@ -19,7 +19,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://YOUR-FRONTEND-DOMAIN.vercel.app",
+      "https://meetmind-ai-gules.vercel.app",
     ],
     credentials: true,
   })

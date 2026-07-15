@@ -322,16 +322,8 @@
 - Refined dashboard layout consistency.
 - Updated profile page styling.
 - Updated application branding with a custom favicon.
-
-### ⏳ In Progress
-
-- Deployment
-
-### ⏳ Upcoming
-
-
-- Final documentation review
-
+- Deployed Frontend Backend and Postgre Database
+- Update Cors
 
 ---
 
