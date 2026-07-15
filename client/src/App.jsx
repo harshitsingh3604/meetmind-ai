@@ -9,6 +9,7 @@ import EditMeeting from "./pages/EditMeeting";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
+import MeetingDetails from "./pages/MeetingDetails";
 
 function App() {
   return (
@@ -38,6 +39,15 @@ function App() {
         />
 
         <Route
+          path="/meetings/:id"
+          element={
+            <ProtectedRoute>
+              <MeetingDetails />
+            </ProtectedRoute>
+          }
+        />
+        
+        <Route
           path="/meetings"
           element={
             <ProtectedRoute>
@@ -45,7 +55,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-    
+
         <Route
           path="/meetings/:id/edit"
           element={
