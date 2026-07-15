@@ -35,7 +35,11 @@
 - Extract key points
 - Generate action items
 - Generate follow-up emails
-- Prepare backend for AI-powered meeting intelligence
+- Develop AI controller layer
+- Expose AI REST APIs
+- Secure AI endpoints using JWT authentication
+
+
 
 ---
 
@@ -78,6 +82,9 @@
 - Standardized AI response parsing before returning results.
 - Added centralized AI error handling to improve reliability.
 - Kept controllers independent from Gemini-specific implementation details.
+- Implemented a dedicated AI controller to separate HTTP request handling from AI business logic.
+- Exposed AI functionality through RESTful endpoints for seamless frontend integration.
+- Protected all AI endpoints using JWT authentication to ensure only authenticated users can access AI features.
 
 ---
 
@@ -204,29 +211,34 @@
 
 ### AI Integration
 
-- Connected Google Gemini API.
-- Configured API credentials using environment variables.
-- Implemented reusable Gemini service.
-- Designed prompt templates for meeting analysis.
-- Implemented AI-powered summary generation.
-- Implemented key point extraction.
-- Implemented action item generation.
-- Implemented follow-up email generation.
-- Added response parsing and cleanup.
-- Implemented centralized AI error handling.
-- Verified AI responses using sample meeting notes.
+- Connected Google Gemini API
+- Configured API credentials using environment variables
+- Implemented reusable Gemini service layer
+- Designed prompt templates for meeting analysis
+- Implemented AI-powered summary generation
+- Implemented key point extraction
+- Implemented action item generation
+- Implemented follow-up email generation
+- Added response parsing and cleanup
+- Implemented centralized AI error handling
+- Developed AI controller layer
+- Created protected AI REST APIs
+- Connected AI routes with Express
+- Secured AI endpoints using JWT middleware
+- Verified AI endpoints using Thunder Client
 
 ### ⏳ In Progress
 
-- AI API integration with Meeting Details page.
+- Frontend integration for AI-powered meeting insights.
 
 ### ⏳ Upcoming
 
+- Meeting Details page
 - AI Summary UI
 - Action Item UI
 - Follow-up Email UI
 - Dashboard AI Analytics
-- Deployment
+- Application deployment
 
 
 ---
@@ -465,6 +477,26 @@ AI failures no longer interrupt application execution and are handled consistent
 
 ---
 
+### AI Controller Integration
+
+During backend AI development, it was important to expose Gemini functionality through reusable REST APIs while keeping the controller independent from AI implementation details.
+
+### Investigation
+
+- Reviewed existing backend architecture.
+- Compared controller responsibilities with service responsibilities.
+- Tested AI request flow.
+- Verified API response consistency.
+
+### Resolution
+
+Implemented dedicated AI controllers that delegate all AI communication to the Gemini service while maintaining consistent API responses.
+
+### Outcome
+
+The backend now exposes reusable AI endpoints without coupling controllers to Gemini-specific logic.
+---
+
 AI assistance was used for:
 
 - Project planning and architecture
@@ -495,6 +527,10 @@ AI assistance was used for:
 - Error handling strategy
 - Backend modularization
 - AI workflow design
+- AI controller architecture
+- REST API design
+- Gemini route integration
+- JWT-protected AI endpoints
 
 All AI-generated suggestions were carefully reviewed, tested, and manually adapted before implementation.
 
@@ -518,20 +554,16 @@ Expanded into a modular AI-powered SaaS application featuring:
 - Ownership-based authorization
 - Protected frontend and backend routes
 - AI-powered meeting summaries
-- AI action item tracking
-- AI-generated follow-up emails
-- AI meeting summaries
 - Key point extraction
-- Action item generation
+- AI-generated action items
 - AI-generated follow-up emails
-- Modular AI service architecture
+- Modular Gemini service architecture
+- Protected AI REST APIs
 
 ---
 
 ## Notes
 
-## Notes
+The backend now supports reusable AI functionality through Google Gemini and exposes protected REST APIs for AI-powered meeting intelligence.
 
-The backend now supports reusable AI functionality through Google Gemini.
-
-The next milestone focuses on integrating AI responses into the Meeting Details page and presenting generated summaries, action items, and follow-up emails within the frontend.
+The next development milestone focuses on integrating AI responses into the Meeting Details page and presenting generated summaries, action items, and follow-up emails through the frontend interface.

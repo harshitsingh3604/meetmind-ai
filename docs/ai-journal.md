@@ -1099,7 +1099,7 @@ Successfully completed the Meeting Management integration. Authenticated meeting
 
 ## Goal
 
-Integrate Google Gemini to provide AI-powered meeting assistance.
+Develop the AI controller layer to expose reusable meeting intelligence features through backend controller functions while keeping AI communication separated from request handling.
 
 ### AI Tool
 
@@ -1107,28 +1107,110 @@ ChatGPT (GPT-5.5)
 
 ### Prompt
 
-Design a reusable Gemini AI service for an Express.js application capable of generating meeting summaries, extracting key points, identifying action items, and drafting follow-up emails.
+Design a modular AI controller for an Express.js application that integrates with a reusable Gemini service to generate meeting summaries, action items, and follow-up emails while following a layered backend architecture.
 
 ### AI Output
 
 Suggested:
 
-- Modular AI service architecture
-- Prompt engineering strategy
-- Response parsing
-- Error handling
-- Reusable generation functions
+- AI controller structure
+- Summary controller
+- Action item controller
+- Follow-up email controller
+- Request validation
+- Error handling strategy
+- Consistent API response format
 
 ### Manual Changes
 
-- Configured Gemini API credentials.
-- Adapted prompts for the project requirements.
-- Tested AI responses with sample meeting notes.
-- Integrated reusable service functions into the backend.
+- Implemented controller functions for AI features.
+- Connected controllers with the Gemini service.
+- Added request validation before AI generation.
+- Standardized success and error responses.
+- Tested controller functionality using sample meeting notes.
 
-### Outcome
+---
 
-Successfully implemented a reusable AI service supporting multiple meeting intelligence features.
+## AI Controller Development
+
+### Summary Controller
+
+Implemented a controller responsible for generating AI-powered meeting summaries.
+
+Responsibilities:
+
+- Validate incoming meeting notes.
+- Invoke the Gemini service.
+- Return a structured summary response.
+- Handle generation errors gracefully.
+
+---
+
+### Action Items Controller
+
+Implemented a controller for extracting actionable tasks from meeting notes.
+
+Responsibilities:
+
+- Validate request data.
+- Generate AI-based action items.
+- Return formatted responses.
+- Handle invalid requests.
+
+---
+
+### Follow-up Email Controller
+
+Implemented a controller for generating professional follow-up emails.
+
+Responsibilities:
+
+- Process meeting notes.
+- Request AI-generated email content.
+- Return structured responses.
+- Handle AI service failures consistently.
+
+---
+
+## Challenges Encountered
+
+### Challenge
+
+Keeping controller logic lightweight while avoiding direct dependency on Gemini-specific implementation.
+
+### Resolution
+
+Delegated all AI processing responsibilities to the reusable Gemini service and limited controller responsibilities to request validation, response formatting, and error handling.
+
+---
+
+### Challenge
+
+Maintaining consistent API responses across multiple AI generation endpoints.
+
+### Resolution
+
+Standardized response formatting and centralized error handling to provide predictable API responses for future frontend integration.
+
+---
+
+## Debugging
+
+Verified:
+
+- Summary generation flow
+- Action item generation flow
+- Follow-up email generation flow
+- Request validation
+- Error handling
+- Controller-to-service communication
+- Response formatting
+
+---
+
+## Outcome
+
+Successfully implemented a modular AI controller layer that connects backend requests with the reusable Gemini service while maintaining clean separation of concerns and consistent API responses.
 
 ### Status
 
