@@ -24,6 +24,7 @@
 - Verify end-to-end Meeting Management functionality
 
 
+
 # Day 2
 
 ## Objectives
@@ -55,6 +56,7 @@
 - Update user profile details
 - Implement secure password change workflow
 - Integrate profile management with protected backend APIs
+- Update the UI
 
 
 ---
@@ -118,6 +120,7 @@
 - Reused JWT authentication middleware to protect all profile-related endpoints.
 - Structured the profile page into separate sections for account information and password management.
 - Reused the centralized Axios service for profile API communication.
+- Update the sidebar color and spacing between cards
 
 ---
 
@@ -313,12 +316,14 @@
 - Added loading states during profile operations.
 - Verified profile updates and password changes using authenticated requests.
 
+###
+- Implement Final UI refinement
+
 ### ⏳ In Progress
 
-- Final UI refinement
+- Update README.md 
 
 ### ⏳ Upcoming
-
 
 - Deployment
 - Final documentation review
@@ -736,6 +741,7 @@ AI assistance was used for:
 - Protected profile APIs
 - Password update workflow
 - Profile frontend integration
+- UI refinement
 
 All AI-generated suggestions were carefully reviewed, tested, and manually adapted before implementation.
 

@@ -20,16 +20,16 @@ const Sidebar = () => {
   const navLinkClass = ({ isActive }) =>
     `flex items-center gap-3 rounded-lg px-4 py-3 font-medium transition-all duration-200 ${
       isActive
-        ? "bg-blue-600 text-white shadow"
+        ? "bg-white text-blue-600  shadow"
         : "text-gray-700 hover:bg-gray-100 hover:text-blue-600"
     }`;
 
   return (
-    <aside className="fixed left-0 top-0 flex h-screen w-64 flex-col border-r bg-blue-600 text-white shadow-md hover:bg-gray-100 transition-all duration-200">
+    <aside className="fixed left-0 top-0 flex h-screen w-64 flex-col bg-blue-600 text-white shadow-lg">
 
       {/* Logo */}
       <div className="border-b p-6">
-        <h1 className="text-2xl font-bold text-blue-600">
+        <h1 className="text-2xl font-bold text-white">
           MeetMind AI
         </h1>
       </div>

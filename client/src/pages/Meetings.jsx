@@ -73,7 +73,7 @@ const Meetings = () => {
         <Navbar />
 
         {/* Page Content */}
-        <main className="flex-1 bg-gray-100 p-6 md:p-8">
+        <main className="flex-1 bg-gray-100 p-8 md:p-8">
 
           <div className="mx-auto w-full max-w-6xl">
 
@@ -134,7 +134,7 @@ const Meetings = () => {
 
               ) : (
 
-                <div className="grid gap-6">
+                <div className="grid gap-8">
 
                   {meetings.map((meeting) => (
 

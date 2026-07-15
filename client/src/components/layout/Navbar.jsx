@@ -5,10 +5,10 @@ const Navbar = () => {
   const { user } = useAuth();
 
   return (
-    <header className="sticky top-0 z-10 flex h-20 items-center justify-between border-b bg-white px-8 shadow-sm">
+    <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b bg-white px-8 shadow-md">
 
       {/* Search Bar */}
-      <div className="relative w-full max-w-md">
+      <div className="relative w-full max-w-lg">
         <Search
           size={18}
           className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"

@@ -34,8 +34,6 @@ const MeetingDetails = () => {
                 setLoading(true);
 
                 const response = await api.get(`/meetings/${id}`);
-                console.log(response.data.data);
-console.log(response.data.data.meetingDate);
 
                 setMeeting(response.data.data || []);
             } catch (error) {
@@ -154,7 +152,7 @@ console.log(response.data.data.meetingDate);
 
                 <Navbar />
 
-                <main className="flex-1 p-6 md:p-8">
+                <main className="flex-1 p-8 md:p-8">
 
                     <div className="mx-auto max-w-5xl">
 
@@ -176,7 +174,7 @@ console.log(response.data.data.meetingDate);
 
                         ) : (
 
-                            <div className="flex-1 p-6 md:p-8">
+                            <div className="flex-1 p-8 md:p-8">
 
                                 {/* Meeting Information */}
 
