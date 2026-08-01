@@ -57,6 +57,7 @@ const MeetingDetails = () => {
             setSummaryError("");
 
             const response = await api.post("/ai/summary", {
+                meetingId: meeting.id,
                 meetingNotes: meeting.meetingNotes,
             });
 
@@ -80,6 +81,7 @@ const MeetingDetails = () => {
             setKeyPointsError("");
 
             const response = await api.post("/ai/key-points", {
+                meetingId: meeting.id,
                 meetingNotes: meeting.meetingNotes,
             });
 
@@ -103,6 +105,7 @@ const MeetingDetails = () => {
             setActionItemsError("");
 
             const response = await api.post("/ai/action-items", {
+                meetingId: meeting.id,
                 meetingNotes: meeting.meetingNotes,
             });
 
@@ -126,6 +129,7 @@ const MeetingDetails = () => {
             setFollowupEmailError("");
 
             const response = await api.post("/ai/followup", {
+                meetingId: meeting.id,
                 meetingNotes: meeting.meetingNotes,
             });
 
